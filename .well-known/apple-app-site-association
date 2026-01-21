@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["92P9C5C9C8.com.therexxapp.Rexx"],
+        "paths": ["/r/*"]
+      }
+    ]
+  }
+}

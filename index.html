@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rexx - Track Recommendations from People You Trust</title>
+    <meta name="description" content="Rexx helps you track recommendations from friends and family. Books, movies, TV shows, restaurants, and more.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #fff;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 500px;
+        }
+
+        .logo {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+        }
+
+        .feature-text {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: #000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .download-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .footer {
+            margin-top: 60px;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="logo">Rexx</h1>
+        <p class="tagline">Track recommendations from people you trust.<br>Books, movies, TV shows, restaurants, and more.</p>
+
+        <div class="features">
+            <div class="feature">
+                <span class="feature-icon">📚</span>
+                <span class="feature-text">Books</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🎬</span>
+                <span class="feature-text">Movies</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">📺</span>
+                <span class="feature-text">TV Shows</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🍽️</span>
+                <span class="feature-text">Restaurants</span>
+            </div>
+        </div>
+
+        <a href="https://apps.apple.com/app/rexx" class="download-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
+            Download on the App Store
+        </a>
+
+        <p class="footer">© 2025 Rexx</p>
+    </div>
+</body>
+</html>

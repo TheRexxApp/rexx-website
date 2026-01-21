@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shared Recommendation - Rexx</title>
+
+    <!-- Open Graph / Social Sharing Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Rexx">
+    <meta property="og:title" id="og-title" content="Recommendation on Rexx">
+    <meta property="og:description" id="og-description" content="Check out this recommendation">
+    <meta property="og:image" id="og-image" content="">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" id="twitter-title" content="Recommendation on Rexx">
+    <meta name="twitter:description" id="twitter-description" content="Check out this recommendation">
+
+    <!-- App Store Smart Banner -->
+    <meta name="apple-itunes-app" content="app-id=YOUR_APP_STORE_ID">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 420px;
+            width: 100%;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .cover-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 250px;
+        }
+
+        .cover-image {
+            max-width: 180px;
+            max-height: 250px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            object-fit: contain;
+        }
+
+        .fallback-icon {
+            font-size: 80px;
+            opacity: 0.9;
+        }
+
+        .content-section {
+            padding: 24px;
+            color: #1a1a2e;
+        }
+
+        .title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #1a1a2e;
+        }
+
+        .creator {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        .year {
+            font-size: 0.875rem;
+            color: #888;
+            margin-bottom: 16px;
+        }
+
+        .divider {
+            height: 1px;
+            background: #e0e0e0;
+            margin: 16px 0;
+        }
+
+        .detail-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .detail-icon {
+            font-size: 1.25rem;
+            width: 24px;
+            text-align: center;
+            color: #667eea;
+        }
+
+        .detail-content {
+            flex: 1;
+        }
+
+        .detail-label {
+            font-size: 0.75rem;
+            color: #888;
+            margin-bottom: 2px;
+        }
+
+        .detail-value {
+            font-size: 0.9375rem;
+            color: #333;
+        }
+
+        .notes {
+            background: #f5f5f5;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            color: #555;
+            font-style: italic;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 20px 24px 24px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 24px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background: #000;
+            color: #fff;
+        }
+
+        .btn-icon {
+            font-size: 1.25rem;
+        }
+
+        .logo-section {
+            text-align: center;
+            padding: 24px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .tagline {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 24px;
+            color: #fff;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 16px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .error {
+            text-align: center;
+            padding: 40px 24px;
+        }
+
+        .error-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+
+        .error-message {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 24px;
+        }
+
+        /* Category-specific colors */
+        .category-books { background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); }
+        .category-movies { background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%); }
+        .category-tv { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+        .category-music { background: linear-gradient(135deg, #ec4899 0%, #be185d 100%); }
+        .category-podcasts { background: linear-gradient(135deg, #f97316 0%, #c2410c 100%); }
+        .category-restaurants { background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%); }
+        .category-travel { background: linear-gradient(135deg, #14b8a6 0%, #0f766e 100%); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Loading State -->
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Loading recommendation...</p>
+        </div>
+
+        <!-- Error State -->
+        <div id="error" class="error" style="display: none;">
+            <div class="error-icon">😕</div>
+            <p class="error-message">This link doesn't seem to be valid.</p>
+            <a href="https://apps.apple.com/app/rexx" class="btn btn-secondary">
+                <span class="btn-icon">📱</span>
+                Get Rexx
+            </a>
+        </div>
+
+        <!-- Content -->
+        <div id="content" style="display: none;">
+            <div class="card">
+                <div class="cover-section" id="cover-section">
+                    <img id="cover-image" class="cover-image" style="display: none;" alt="Cover">
+                    <div id="fallback-icon" class="fallback-icon">📚</div>
+                </div>
+
+                <div class="content-section">
+                    <h1 class="title" id="title"></h1>
+                    <p class="creator" id="creator" style="display: none;"></p>
+                    <p class="year" id="year" style="display: none;"></p>
+
+                    <div class="divider"></div>
+
+                    <div class="detail-row">
+                        <span class="detail-icon">👤</span>
+                        <div class="detail-content">
+                            <div class="detail-label">Recommended by</div>
+                            <div class="detail-value" id="recommended-by"></div>
+                        </div>
+                    </div>
+
+                    <div class="detail-row" id="category-row" style="display: none;">
+                        <span class="detail-icon">📁</span>
+                        <div class="detail-content">
+                            <div class="detail-label">Category</div>
+                            <div class="detail-value" id="category"></div>
+                        </div>
+                    </div>
+
+                    <div id="notes-section" style="display: none;">
+                        <div class="divider"></div>
+                        <p class="notes" id="notes"></p>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <a id="open-app" href="#" class="btn btn-primary">
+                        <span class="btn-icon">📲</span>
+                        Open in Rexx
+                    </a>
+                    <a href="https://apps.apple.com/app/rexx" class="btn btn-secondary">
+                        <span class="btn-icon">📱</span>
+                        Get Rexx
+                    </a>
+                </div>
+            </div>
+
+            <div class="logo-section">
+                <div class="logo">Rexx</div>
+                <p class="tagline">Track recommendations from people you trust</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Category icons and colors mapping
+        const categoryConfig = {
+            'books': { icon: '📚', class: 'category-books' },
+            'movies': { icon: '🎬', class: 'category-movies' },
+            'tv shows': { icon: '📺', class: 'category-tv' },
+            'music': { icon: '🎵', class: 'category-music' },
+            'podcasts': { icon: '🎧', class: 'category-podcasts' },
+            'restaurants': { icon: '🍽️', class: 'category-restaurants' },
+            'travel': { icon: '✈️', class: 'category-travel' },
+        };
+
+        function decodeBase64URL(str) {
+            // Convert URL-safe Base64 back to standard Base64
+            let base64 = str
+                .replace(/-/g, '+')
+                .replace(/_/g, '/');
+
+            // Add padding if needed
+            const padding = (4 - base64.length % 4) % 4;
+            base64 += '='.repeat(padding);
+
+            try {
+                const decoded = atob(base64);
+                return JSON.parse(decoded);
+            } catch (e) {
+                console.error('Failed to decode:', e);
+                return null;
+            }
+        }
+
+        function showError() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('error').style.display = 'block';
+        }
+
+        function showContent(data) {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+
+            // Set title
+            document.getElementById('title').textContent = data.t || 'Untitled';
+            document.title = `${data.t} - Shared on Rexx`;
+
+            // Update meta tags
+            document.getElementById('og-title').content = data.t || 'Recommendation on Rexx';
+            document.getElementById('twitter-title').content = data.t || 'Recommendation on Rexx';
+
+            // Set creator
+            if (data.c) {
+                const creatorEl = document.getElementById('creator');
+                creatorEl.textContent = `by ${data.c}`;
+                creatorEl.style.display = 'block';
+            }
+
+            // Set year
+            if (data.y) {
+                const yearEl = document.getElementById('year');
+                yearEl.textContent = data.y;
+                yearEl.style.display = 'block';
+            }
+
+            // Set recommended by
+            document.getElementById('recommended-by').textContent = data.r || 'Someone';
+
+            // Set category
+            if (data.cat) {
+                const categoryRow = document.getElementById('category-row');
+                document.getElementById('category').textContent = data.cat;
+                categoryRow.style.display = 'flex';
+
+                // Apply category styling
+                const categoryKey = data.cat.toLowerCase();
+                if (categoryConfig[categoryKey]) {
+                    const coverSection = document.getElementById('cover-section');
+                    coverSection.classList.add(categoryConfig[categoryKey].class);
+                    document.getElementById('fallback-icon').textContent = categoryConfig[categoryKey].icon;
+                }
+            }
+
+            // Set notes
+            if (data.n) {
+                document.getElementById('notes').textContent = `"${data.n}"`;
+                document.getElementById('notes-section').style.display = 'block';
+            }
+
+            // Set cover image
+            if (data.i) {
+                const coverImage = document.getElementById('cover-image');
+                const fallbackIcon = document.getElementById('fallback-icon');
+
+                coverImage.onload = function() {
+                    coverImage.style.display = 'block';
+                    fallbackIcon.style.display = 'none';
+                };
+
+                coverImage.onerror = function() {
+                    coverImage.style.display = 'none';
+                    fallbackIcon.style.display = 'block';
+                };
+
+                coverImage.src = data.i;
+
+                // Update meta image
+                document.getElementById('og-image').content = data.i;
+            }
+
+            // Build description for meta
+            let description = `${data.t}`;
+            if (data.c) description += ` by ${data.c}`;
+            description += ` - Recommended by ${data.r || 'someone'}`;
+            if (data.cat) description += ` (${data.cat})`;
+
+            document.getElementById('og-description').content = description;
+            document.getElementById('twitter-description').content = description;
+
+            // Set the Open in App link (Universal Link)
+            document.getElementById('open-app').href = window.location.href;
+        }
+
+        // Parse the URL and display content
+        function init() {
+            const path = window.location.pathname;
+
+            // Extract Base64 data from path (format: /r/{base64})
+            const match = path.match(/^\/r\/(.+)$/);
+
+            if (!match || !match[1]) {
+                showError();
+                return;
+            }
+
+            const data = decodeBase64URL(match[1]);
+
+            if (!data || !data.t) {
+                showError();
+                return;
+            }
+
+            showContent(data);
+        }
+
+        // Run on page load
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
