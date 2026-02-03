@@ -14,56 +14,85 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f7;
             min-height: 100vh;
-            padding: 40px 20px;
-            color: #fff;
+            color: #1d1d1f;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .header {
+            background: #fff;
+            border-bottom: 1px solid #e5e5e7;
+            padding: 16px 24px;
+        }
+
+        .header-inner {
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #667eea;
+            text-decoration: none;
+            font-size: 0.9375rem;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .back-link svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
         }
 
         .container {
             max-width: 700px;
             margin: 0 auto;
-        }
-
-        .logo {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 8px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .logo:hover {
-            opacity: 0.9;
+            padding: 48px 24px 80px;
         }
 
         h1 {
-            font-size: 2rem;
-            margin: 32px 0 8px 0;
-            color: #fff;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1d1d1f;
+            letter-spacing: -0.02em;
         }
 
         .last-updated {
-            color: rgba(255, 255, 255, 0.5);
+            color: #86868b;
             font-size: 0.875rem;
-            margin-bottom: 32px;
+            margin-bottom: 40px;
         }
 
         h2 {
             font-size: 1.25rem;
-            margin: 32px 0 12px 0;
-            color: rgba(255, 255, 255, 0.95);
+            font-weight: 600;
+            margin: 40px 0 16px 0;
+            color: #1d1d1f;
         }
 
         p, li {
-            color: rgba(255, 255, 255, 0.8);
+            color: #6e6e73;
             line-height: 1.7;
             margin-bottom: 16px;
+            font-size: 1rem;
+        }
+
+        p strong {
+            color: #1d1d1f;
         }
 
         ul {
@@ -79,19 +108,32 @@
             color: #667eea;
         }
 
+        a:hover {
+            text-decoration: underline;
+        }
+
         .footer {
             margin-top: 60px;
             padding-top: 24px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.875rem;
-            color: rgba(255, 255, 255, 0.5);
+            border-top: 1px solid #e5e5e7;
+            font-size: 0.8125rem;
+            color: #86868b;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <a href="/" class="logo">Rexx</a>
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="back-link">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <polyline points="15 18 9 12 15 6"/>
+                </svg>
+                Back to Rexx
+            </a>
+        </div>
+    </header>
 
+    <div class="container">
         <h1>Privacy Policy</h1>
         <p class="last-updated">Last updated: February 3, 2026</p>
 
@@ -103,7 +145,7 @@
         Rexx stores your recommendations, categories, and notes locally on your device. This data is yours and stays on your device.</p>
 
         <p><strong>iCloud Sync</strong><br>
-        If you have iCloud enabled, your data syncs across your devices using your personal iCloud account. We do not have access to this data—it is stored in your private iCloud container.</p>
+        If you have iCloud enabled, your data syncs across your devices using your personal iCloud account. We do not have access to this data. It is stored in your private iCloud container.</p>
 
         <p><strong>Contacts (Optional)</strong><br>
         With your permission, Rexx can access your contacts to help you quickly enter who recommended something. Contact data is only used locally and is never uploaded to our servers or shared with third parties.</p>
