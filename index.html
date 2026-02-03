@@ -115,7 +115,8 @@
             display: flex;
             gap: 16px;
             width: max-content;
-            animation: scroll 30s linear infinite;
+            animation: scroll 35s linear infinite;
+            padding-left: 16px;
         }
 
         .categories:hover {
@@ -127,7 +128,7 @@
                 transform: translateX(0);
             }
             100% {
-                transform: translateX(-50%);
+                transform: translateX(calc(-50% - 8px));
             }
         }
 
