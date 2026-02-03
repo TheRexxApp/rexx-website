@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            width: 1200px;
+            height: 630px;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+            background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 50%, #f5f5f7 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle gradient orbs */
+        .orb1 {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.15) 0%, transparent 70%);
+            top: -200px;
+            left: -100px;
+        }
+        .orb2 {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(118, 75, 162, 0.12) 0%, transparent 70%);
+            bottom: -150px;
+            right: -50px;
+        }
+
+        .content {
+            text-align: center;
+            z-index: 1;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            margin-bottom: 32px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 72px;
+            font-weight: 700;
+            color: #1d1d1f;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+
+        p {
+            font-size: 32px;
+            color: #6e6e73;
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+    <div class="orb1"></div>
+    <div class="orb2"></div>
+    <div class="content">
+        <img src="logo.png" class="logo" alt="Rexx">
+        <h1>Rexx</h1>
+        <p>Never Forget a Recommendation</p>
+    </div>
+</body>
+</html>
