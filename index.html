@@ -320,16 +320,20 @@
         }
 
         .feature-icon {
-            width: 64px;
-            height: 64px;
-            border-radius: 18px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            width: 56px;
+            height: 56px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.75rem;
             margin: 0 auto 24px;
-            box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+        }
+
+        .feature-icon svg {
+            width: 48px;
+            height: 48px;
+            stroke: #667eea;
+            stroke-width: 1.5;
+            fill: none;
         }
 
         .feature-card h3 {
@@ -681,17 +685,34 @@
         <h2 class="section-title">People over algorithms.</h2>
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon">👥</div>
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>
+                        <circle cx="17" cy="7" r="3"/>
+                        <path d="M21 21v-2a3 3 0 0 0-2-2.83"/>
+                    </svg>
+                </div>
                 <h3>Trusted Sources</h3>
                 <p>Save recommendations from friends and family who actually know your taste.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🎤</div>
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                        <line x1="12" y1="19" x2="12" y2="22"/>
+                    </svg>
+                </div>
                 <h3>Add by Voice</h3>
                 <p>Just say it. Add recommendations hands-free when you're in conversation.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">☁️</div>
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+                    </svg>
+                </div>
                 <h3>Synced Everywhere</h3>
                 <p>Your list syncs across all your devices with iCloud. Always with you.</p>
             </div>
