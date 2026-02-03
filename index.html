@@ -32,30 +32,6 @@
         }
 
         /* Animated Gradient Background */
-        .hero {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                45deg,
-                rgba(102, 126, 234, 0.08) 0%,
-                rgba(118, 75, 162, 0.08) 25%,
-                rgba(102, 126, 234, 0.05) 50%,
-                rgba(240, 240, 245, 0.1) 75%,
-                rgba(118, 75, 162, 0.08) 100%
-            );
-            animation: gradientShift 15s ease-in-out infinite;
-            z-index: -1;
-        }
-
         @keyframes gradientShift {
             0%, 100% {
                 transform: translate(0, 0) rotate(0deg);
@@ -113,6 +89,30 @@
         }
 
         /* Hero Section */
+        .hero-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                rgba(102, 126, 234, 0.08) 0%,
+                rgba(118, 75, 162, 0.08) 25%,
+                rgba(102, 126, 234, 0.05) 50%,
+                rgba(240, 240, 245, 0.1) 75%,
+                rgba(118, 75, 162, 0.08) 100%
+            );
+            animation: gradientShift 15s ease-in-out infinite;
+            z-index: -1;
+        }
+
         .hero {
             text-align: center;
             padding: 80px 24px 60px;
@@ -539,6 +539,7 @@
 </head>
 <body>
     <!-- Hero -->
+    <div class="hero-wrapper">
     <section class="hero">
         <img src="/logo.png" alt="Rexx" class="logo">
         <h1 class="tagline">Never forget a recommendation.</h1>
@@ -553,6 +554,7 @@
             </div>
         </div>
     </section>
+    </div>
 
     <!-- Categories -->
     <section class="categories-section">
