@@ -19,247 +19,315 @@
             padding: 0;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #f5f5f7;
-            min-height: 100vh;
-            color: #1d1d1f;
+        html {
+            scroll-behavior: smooth;
         }
 
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 0 24px;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: #fff;
+            min-height: 100vh;
+            color: #1d1d1f;
+            -webkit-font-smoothing: antialiased;
         }
 
         /* Hero Section */
         .hero {
             text-align: center;
-            padding: 60px 24px 50px;
+            padding: 80px 24px 60px;
+            max-width: 680px;
+            margin: 0 auto;
         }
 
         .logo {
-            height: 80px;
-            margin-bottom: 24px;
+            height: 72px;
+            margin-bottom: 32px;
         }
 
         .tagline {
-            font-size: 2rem;
+            font-size: 3rem;
             color: #1d1d1f;
-            margin-bottom: 16px;
-            line-height: 1.3;
-            font-weight: 600;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            font-weight: 700;
+            letter-spacing: -0.02em;
         }
 
         .subtitle {
-            font-size: 1.125rem;
-            color: #6e6e73;
+            font-size: 1.25rem;
+            color: #86868b;
             margin-bottom: 40px;
-            line-height: 1.6;
-            max-width: 520px;
+            line-height: 1.5;
+            max-width: 480px;
             margin-left: auto;
             margin-right: auto;
+            font-weight: 400;
         }
 
         .app-store-badge {
             display: inline-block;
-            transition: transform 0.2s, opacity 0.2s;
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
         .app-store-badge:hover {
-            transform: translateY(-2px);
-            opacity: 0.9;
+            transform: scale(1.05);
         }
 
         .app-store-badge img {
-            height: 54px;
+            height: 52px;
         }
 
-        /* Categories */
+        /* Categories Scroll Section */
+        .categories-section {
+            padding: 60px 0;
+            background: #f5f5f7;
+        }
+
+        .categories-wrapper {
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: 20px 0;
+        }
+
+        .categories-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+
         .categories {
             display: flex;
-            justify-content: center;
-            gap: 28px;
-            margin-top: 48px;
-            flex-wrap: wrap;
+            gap: 16px;
+            padding: 0 max(24px, calc((100vw - 960px) / 2 + 24px));
+            width: max-content;
         }
 
-        .category {
+        .category-card {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
+            justify-content: center;
+            gap: 12px;
+            padding: 24px 20px;
+            min-width: 110px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: default;
+        }
+
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.06);
         }
 
         .category-icon {
-            font-size: 1.75rem;
+            font-size: 2.25rem;
         }
 
         .category-text {
-            font-size: 0.8125rem;
-            color: #86868b;
+            font-size: 0.875rem;
+            color: #1d1d1f;
+            font-weight: 500;
         }
 
-        /* Value Props Section */
-        .value-props {
-            padding: 60px 24px;
-            background: #fff;
+        /* Features Section */
+        .features-section {
+            padding: 100px 24px;
+            max-width: 1080px;
+            margin: 0 auto;
         }
 
-        .value-props .container {
+        .section-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #6e6e73;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1d1d1f;
+            text-align: center;
+            margin-bottom: 60px;
+            letter-spacing: -0.02em;
+        }
+
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
+            gap: 24px;
         }
 
-        .value-prop {
+        .feature-card {
+            background: #f5f5f7;
+            border-radius: 24px;
+            padding: 40px 32px;
             text-align: center;
+            transition: transform 0.3s ease;
         }
 
-        .value-prop-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 16px;
+        .feature-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 18px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            margin: 0 auto 16px;
+            font-size: 1.75rem;
+            margin: 0 auto 24px;
+            box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
         }
 
-        .value-prop h3 {
-            font-size: 1.125rem;
-            margin-bottom: 8px;
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
             color: #1d1d1f;
             font-weight: 600;
         }
 
-        .value-prop p {
-            font-size: 0.9375rem;
+        .feature-card p {
+            font-size: 1rem;
             color: #6e6e73;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         /* How It Works */
-        .how-it-works {
-            padding: 60px 24px;
-            text-align: center;
+        .how-section {
+            padding: 100px 24px;
             background: #f5f5f7;
         }
 
-        .section-title {
-            font-size: 1.75rem;
-            margin-bottom: 40px;
-            color: #1d1d1f;
-            font-weight: 600;
-        }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-            max-width: 800px;
+        .how-content {
+            max-width: 900px;
             margin: 0 auto;
         }
 
-        .step {
-            position: relative;
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .step-card {
+            background: #fff;
+            border-radius: 24px;
+            padding: 40px 32px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
         }
 
         .step-number {
-            width: 44px;
-            height: 44px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 1.125rem;
-            margin: 0 auto 16px;
+            font-size: 1.25rem;
+            margin: 0 auto 20px;
             color: #fff;
+            box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
         }
 
-        .step h3 {
-            font-size: 1rem;
-            margin-bottom: 8px;
+        .step-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
             color: #1d1d1f;
             font-weight: 600;
         }
 
-        .step p {
-            font-size: 0.875rem;
+        .step-card p {
+            font-size: 1rem;
             color: #6e6e73;
             line-height: 1.5;
         }
 
         /* Privacy Section */
         .privacy-section {
-            padding: 48px 24px;
+            padding: 80px 24px;
             text-align: center;
-            background: #fff;
         }
 
-        .privacy-badge {
+        .privacy-card {
             display: inline-flex;
             align-items: center;
-            gap: 16px;
-            padding: 20px 28px;
+            gap: 20px;
+            padding: 28px 36px;
             background: #f5f5f7;
-            border-radius: 16px;
+            border-radius: 20px;
+            max-width: 420px;
         }
 
         .privacy-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.25rem;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+        }
+
+        .privacy-text {
+            text-align: left;
         }
 
         .privacy-text h3 {
-            font-size: 1rem;
+            font-size: 1.125rem;
             color: #1d1d1f;
             margin-bottom: 4px;
-            text-align: left;
             font-weight: 600;
         }
 
         .privacy-text p {
-            font-size: 0.875rem;
+            font-size: 0.9375rem;
             color: #6e6e73;
-            text-align: left;
+            line-height: 1.4;
         }
 
         /* CTA Section */
         .cta-section {
-            padding: 60px 24px;
+            padding: 100px 24px 120px;
             text-align: center;
-            background: #f5f5f7;
+            background: linear-gradient(180deg, #fff 0%, #f5f5f7 100%);
         }
 
         .cta-title {
-            font-size: 1.5rem;
-            margin-bottom: 8px;
+            font-size: 2.5rem;
+            margin-bottom: 16px;
             color: #1d1d1f;
-            font-weight: 600;
+            font-weight: 700;
+            letter-spacing: -0.02em;
         }
 
         .cta-subtitle {
-            font-size: 1rem;
-            color: #6e6e73;
-            margin-bottom: 32px;
+            font-size: 1.125rem;
+            color: #86868b;
+            margin-bottom: 40px;
         }
 
         /* Footer */
         .footer {
             padding: 32px 24px;
             text-align: center;
-            background: #fff;
+            background: #f5f5f7;
             border-top: 1px solid #e5e5e7;
         }
 
@@ -271,7 +339,7 @@
             color: #6e6e73;
             text-decoration: none;
             font-size: 0.875rem;
-            margin: 0 16px;
+            margin: 0 20px;
             transition: color 0.2s;
         }
 
@@ -287,33 +355,48 @@
         /* Responsive */
         @media (max-width: 768px) {
             .hero {
-                padding: 48px 24px 40px;
+                padding: 60px 24px 40px;
             }
 
             .logo {
-                height: 64px;
+                height: 56px;
             }
 
             .tagline {
-                font-size: 1.5rem;
+                font-size: 2rem;
             }
 
             .subtitle {
-                font-size: 1rem;
+                font-size: 1.0625rem;
             }
 
-            .categories {
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .features-grid,
+            .steps-grid {
+                grid-template-columns: 1fr;
                 gap: 16px;
             }
 
-            .value-props .container {
-                grid-template-columns: 1fr;
-                gap: 32px;
+            .feature-card,
+            .step-card {
+                padding: 32px 24px;
             }
 
-            .steps {
-                grid-template-columns: 1fr;
-                gap: 32px;
+            .cta-title {
+                font-size: 1.75rem;
+            }
+
+            .privacy-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 32px 24px;
+            }
+
+            .privacy-text {
+                text-align: center;
             }
         }
     </style>
@@ -321,81 +404,110 @@
 <body>
     <!-- Hero -->
     <section class="hero">
-        <div class="container">
-            <img src="/logo.png" alt="Rexx" class="logo">
-            <p class="tagline">Never forget a recommendation.</p>
-            <p class="subtitle">When someone you trust says "you have to watch this" or "you'd love this restaurant" — save it in Rexx and never lose it again.</p>
+        <img src="/logo.png" alt="Rexx" class="logo">
+        <h1 class="tagline">Never forget a recommendation.</h1>
+        <p class="subtitle">Save the books, movies, restaurants, and music that people you trust tell you about.</p>
+        <a href="https://apps.apple.com/app/rexx" class="app-store-badge">
+            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
+        </a>
+    </section>
 
-            <a href="https://apps.apple.com/app/rexx" class="app-store-badge">
-                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
-            </a>
-
+    <!-- Categories -->
+    <section class="categories-section">
+        <div class="categories-wrapper">
             <div class="categories">
-                <div class="category">
+                <div class="category-card">
                     <span class="category-icon">📚</span>
                     <span class="category-text">Books</span>
                 </div>
-                <div class="category">
+                <div class="category-card">
                     <span class="category-icon">🎬</span>
                     <span class="category-text">Movies</span>
                 </div>
-                <div class="category">
+                <div class="category-card">
                     <span class="category-icon">📺</span>
                     <span class="category-text">TV Shows</span>
                 </div>
-                <div class="category">
+                <div class="category-card">
                     <span class="category-icon">🎵</span>
                     <span class="category-text">Music</span>
                 </div>
-                <div class="category">
+                <div class="category-card">
                     <span class="category-icon">🎙️</span>
                     <span class="category-text">Podcasts</span>
                 </div>
-                <div class="category">
+                <div class="category-card">
                     <span class="category-icon">🍽️</span>
                     <span class="category-text">Restaurants</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🎮</span>
+                    <span class="category-text">Games</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🏨</span>
+                    <span class="category-text">Hotels</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">✈️</span>
+                    <span class="category-text">Travel</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🍷</span>
+                    <span class="category-text">Wine</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">👗</span>
+                    <span class="category-text">Fashion</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🎨</span>
+                    <span class="category-text">Art</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Value Props -->
-    <section class="value-props">
-        <div class="container">
-            <div class="value-prop">
-                <div class="value-prop-icon">👥</div>
-                <h3>People Over Algorithms</h3>
-                <p>Skip the endless scrolling. Save recommendations from friends and family who actually know your taste.</p>
+    <!-- Features -->
+    <section class="features-section">
+        <p class="section-label">Why Rexx</p>
+        <h2 class="section-title">People over algorithms.</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">👥</div>
+                <h3>Trusted Sources</h3>
+                <p>Save recommendations from friends and family who actually know your taste.</p>
             </div>
-            <div class="value-prop">
-                <div class="value-prop-icon">🎤</div>
+            <div class="feature-card">
+                <div class="feature-icon">🎤</div>
                 <h3>Add by Voice</h3>
-                <p>Just say it. Add recommendations hands-free when you're on the go or in conversation.</p>
+                <p>Just say it. Add recommendations hands-free when you're in conversation.</p>
             </div>
-            <div class="value-prop">
-                <div class="value-prop-icon">☁️</div>
+            <div class="feature-card">
+                <div class="feature-icon">☁️</div>
                 <h3>Synced Everywhere</h3>
-                <p>Your recommendations sync across all your devices with iCloud. Always have your list with you.</p>
+                <p>Your list syncs across all your devices with iCloud. Always with you.</p>
             </div>
         </div>
     </section>
 
     <!-- How It Works -->
-    <section class="how-it-works">
-        <div class="container">
+    <section class="how-section">
+        <div class="how-content">
+            <p class="section-label">Simple</p>
             <h2 class="section-title">How It Works</h2>
-            <div class="steps">
-                <div class="step">
+            <div class="steps-grid">
+                <div class="step-card">
                     <div class="step-number">1</div>
                     <h3>Save It</h3>
-                    <p>Someone recommends something? Add it to Rexx with the title and who told you.</p>
+                    <p>Someone recommends something? Add it with the title and who told you.</p>
                 </div>
-                <div class="step">
+                <div class="step-card">
                     <div class="step-number">2</div>
                     <h3>Find It</h3>
                     <p>Browse by category or search. See cover art, ratings, and your notes.</p>
                 </div>
-                <div class="step">
+                <div class="step-card">
                     <div class="step-number">3</div>
                     <h3>Share It</h3>
                     <p>Love something? Pass it on to friends with a single tap.</p>
@@ -406,7 +518,7 @@
 
     <!-- Privacy -->
     <section class="privacy-section">
-        <div class="privacy-badge">
+        <div class="privacy-card">
             <div class="privacy-icon">🔒</div>
             <div class="privacy-text">
                 <h3>Your Data Stays Yours</h3>
