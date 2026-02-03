@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rexx - Track Recommendations from People You Trust</title>
-    <meta name="description" content="Rexx helps you track recommendations from friends and family. Books, movies, TV shows, restaurants, and more.">
+    <title>Rexx - Never Forget a Recommendation</title>
+    <meta name="description" content="Rexx helps you save and organize recommendations from people you trust. Books, movies, TV shows, music, podcasts, restaurants, and more.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Rexx - Never Forget a Recommendation">
+    <meta property="og:description" content="Save recommendations from people you trust. Books, movies, TV shows, restaurants, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://therexxapp.com">
 
     <style>
         * {
@@ -17,16 +23,19 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
             color: #fff;
         }
 
         .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Hero Section */
+        .hero {
             text-align: center;
-            max-width: 500px;
+            padding: 80px 24px 60px;
         }
 
         .logo {
@@ -40,99 +49,373 @@
         }
 
         .tagline {
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 40px;
-            line-height: 1.6;
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 16px;
+            line-height: 1.4;
+            font-weight: 500;
         }
 
-        .features {
+        .subtitle {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 40px;
+            line-height: 1.6;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .app-store-badge {
+            display: inline-block;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .app-store-badge:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .app-store-badge img {
+            height: 54px;
+        }
+
+        /* Categories */
+        .categories {
             display: flex;
             justify-content: center;
-            gap: 32px;
-            margin-bottom: 40px;
+            gap: 24px;
+            margin-top: 48px;
             flex-wrap: wrap;
         }
 
-        .feature {
+        .category {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 8px;
         }
 
-        .feature-icon {
+        .category-icon {
+            font-size: 1.75rem;
+        }
+
+        .category-text {
+            font-size: 0.8125rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Value Props Section */
+        .value-props {
+            padding: 60px 24px;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .value-props .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .value-prop {
+            text-align: center;
+        }
+
+        .value-prop-icon {
             font-size: 2rem;
+            margin-bottom: 16px;
         }
 
-        .feature-text {
+        .value-prop h3 {
+            font-size: 1.125rem;
+            margin-bottom: 8px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .value-prop p {
+            font-size: 0.9375rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.6;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 60px 24px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .step {
+            position: relative;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.125rem;
+            margin: 0 auto 16px;
+        }
+
+        .step h3 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .step p {
             font-size: 0.875rem;
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.5;
         }
 
-        .download-btn {
+        /* Privacy Section */
+        .privacy-section {
+            padding: 48px 24px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .privacy-badge {
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            padding: 16px 32px;
-            background: #000;
-            color: #fff;
-            text-decoration: none;
+            padding: 16px 24px;
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 12px;
-            font-size: 1.125rem;
-            font-weight: 600;
-            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .download-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        .privacy-icon {
+            font-size: 1.5rem;
         }
 
-        .download-btn svg {
-            width: 24px;
-            height: 24px;
+        .privacy-text h3 {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 4px;
+            text-align: left;
         }
 
+        .privacy-text p {
+            font-size: 0.8125rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-align: left;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 60px 24px;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .cta-subtitle {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 32px;
+        }
+
+        /* Footer */
         .footer {
-            margin-top: 60px;
+            padding: 32px 24px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-links {
+            margin-bottom: 16px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
             font-size: 0.875rem;
-            color: rgba(255, 255, 255, 0.5);
+            margin: 0 16px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .copyright {
+            font-size: 0.8125rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 24px 40px;
+            }
+
+            .logo {
+                font-size: 3rem;
+            }
+
+            .tagline {
+                font-size: 1.25rem;
+            }
+
+            .categories {
+                gap: 16px;
+            }
+
+            .value-props .container {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .step-number {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="logo">Rexx</h1>
-        <p class="tagline">Track recommendations from people you trust.<br>Books, movies, TV shows, restaurants, and more.</p>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="logo">Rexx</h1>
+            <p class="tagline">Never forget a recommendation.</p>
+            <p class="subtitle">When someone you trust says "you have to watch this" or "you'd love this restaurant" — save it in Rexx and never lose it again.</p>
 
-        <div class="features">
-            <div class="feature">
-                <span class="feature-icon">📚</span>
-                <span class="feature-text">Books</span>
-            </div>
-            <div class="feature">
-                <span class="feature-icon">🎬</span>
-                <span class="feature-text">Movies</span>
-            </div>
-            <div class="feature">
-                <span class="feature-icon">📺</span>
-                <span class="feature-text">TV Shows</span>
-            </div>
-            <div class="feature">
-                <span class="feature-icon">🍽️</span>
-                <span class="feature-text">Restaurants</span>
+            <a href="https://apps.apple.com/app/rexx" class="app-store-badge">
+                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
+            </a>
+
+            <div class="categories">
+                <div class="category">
+                    <span class="category-icon">📚</span>
+                    <span class="category-text">Books</span>
+                </div>
+                <div class="category">
+                    <span class="category-icon">🎬</span>
+                    <span class="category-text">Movies</span>
+                </div>
+                <div class="category">
+                    <span class="category-icon">📺</span>
+                    <span class="category-text">TV Shows</span>
+                </div>
+                <div class="category">
+                    <span class="category-icon">🎵</span>
+                    <span class="category-text">Music</span>
+                </div>
+                <div class="category">
+                    <span class="category-icon">🎙️</span>
+                    <span class="category-text">Podcasts</span>
+                </div>
+                <div class="category">
+                    <span class="category-icon">🍽️</span>
+                    <span class="category-text">Restaurants</span>
+                </div>
             </div>
         </div>
+    </section>
 
-        <a href="https://apps.apple.com/app/rexx" class="download-btn">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-            </svg>
-            Download on the App Store
+    <!-- Value Props -->
+    <section class="value-props">
+        <div class="container">
+            <div class="value-prop">
+                <div class="value-prop-icon">👥</div>
+                <h3>People Over Algorithms</h3>
+                <p>Skip the endless scrolling. Save recommendations from friends and family who actually know your taste.</p>
+            </div>
+            <div class="value-prop">
+                <div class="value-prop-icon">🎤</div>
+                <h3>Add by Voice</h3>
+                <p>Just say it. Add recommendations hands-free when you're on the go or in conversation.</p>
+            </div>
+            <div class="value-prop">
+                <div class="value-prop-icon">☁️</div>
+                <h3>Synced Everywhere</h3>
+                <p>Your recommendations sync across all your devices with iCloud. Always have your list with you.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Save It</h3>
+                    <p>Someone recommends something? Add it to Rexx with the title and who told you.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Find It</h3>
+                    <p>Browse by category or search. See cover art, ratings, and your notes.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Share It</h3>
+                    <p>Love something? Pass it on to friends with a single tap.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy -->
+    <section class="privacy-section">
+        <div class="privacy-badge">
+            <span class="privacy-icon">🔒</span>
+            <div class="privacy-text">
+                <h3>Your Data Stays Yours</h3>
+                <p>No accounts. No tracking. Everything stays on your device and your iCloud.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2 class="cta-title">Ready to remember everything?</h2>
+        <p class="cta-subtitle">Download Rexx free on the App Store.</p>
+        <a href="https://apps.apple.com/app/rexx" class="app-store-badge">
+            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
         </a>
+    </section>
 
-        <p class="footer">© 2025 Rexx</p>
-    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="/privacy">Privacy Policy</a>
+            <a href="mailto:feedback@therexxapp.com">Contact</a>
+        </div>
+        <p class="copyright">© 2026 Downhill Designs LLC</p>
+    </footer>
 </body>
 </html>
