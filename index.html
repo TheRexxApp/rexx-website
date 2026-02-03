@@ -123,12 +123,21 @@
         }
 
         .hero {
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
             padding: 80px 24px 60px;
-            max-width: 680px;
+            max-width: 1100px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 480px;
+            text-align: left;
         }
 
         .logo {
@@ -148,11 +157,8 @@
         .subtitle {
             font-size: 1.25rem;
             color: #86868b;
-            margin-bottom: 40px;
+            margin-bottom: 32px;
             line-height: 1.5;
-            max-width: 480px;
-            margin-left: auto;
-            margin-right: auto;
             font-weight: 400;
         }
 
@@ -491,11 +497,14 @@
         /* Responsive */
         @media (max-width: 768px) {
             .hero {
+                flex-direction: column;
+                text-align: center;
                 padding: 60px 24px 40px;
+                gap: 40px;
             }
 
-            .logo {
-                height: 56px;
+            .hero-text {
+                text-align: center;
             }
 
             .device-screen {
@@ -546,12 +555,13 @@
     <!-- Hero -->
     <div class="hero-wrapper">
     <section class="hero">
-        <h1 class="tagline">Never forget a recommendation.</h1>
-        <p class="subtitle">Save the books, movies, restaurants, and music that people you trust tell you about.</p>
-
-        <a href="https://apps.apple.com/app/rexx" class="app-store-badge">
-            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
-        </a>
+        <div class="hero-text">
+            <h1 class="tagline">Never forget a recommendation.</h1>
+            <p class="subtitle">Save the books, movies, restaurants, and music that people you trust tell you about.</p>
+            <a href="https://apps.apple.com/app/rexx" class="app-store-badge">
+                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
+            </a>
+        </div>
 
         <div class="phone-mockup">
             <img src="/images/homescreen.png" alt="Rexx app home screen" class="device-screen">
