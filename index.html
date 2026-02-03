@@ -31,6 +31,87 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* Animated Gradient Background */
+        .hero {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                rgba(102, 126, 234, 0.08) 0%,
+                rgba(118, 75, 162, 0.08) 25%,
+                rgba(102, 126, 234, 0.05) 50%,
+                rgba(240, 240, 245, 0.1) 75%,
+                rgba(118, 75, 162, 0.08) 100%
+            );
+            animation: gradientShift 15s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(5%, 5%) rotate(5deg);
+            }
+            50% {
+                transform: translate(0, 10%) rotate(0deg);
+            }
+            75% {
+                transform: translate(-5%, 5%) rotate(-5deg);
+            }
+        }
+
+        /* Hero Entrance Animations */
+        .hero-content {
+            animation: fadeUp 1s ease-out forwards;
+        }
+
+        .logo {
+            opacity: 0;
+            animation: fadeUp 0.8s ease-out 0.1s forwards;
+        }
+
+        .tagline {
+            opacity: 0;
+            animation: fadeUp 0.8s ease-out 0.2s forwards;
+        }
+
+        .subtitle {
+            opacity: 0;
+            animation: fadeUp 0.8s ease-out 0.3s forwards;
+        }
+
+        .app-store-badge {
+            opacity: 0;
+            animation: fadeUp 0.8s ease-out 0.4s forwards;
+        }
+
+        .phone-mockup {
+            opacity: 0;
+            animation: fadeUp 1s ease-out 0.6s forwards;
+        }
+
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Hero Section */
         .hero {
             text-align: center;
@@ -77,19 +158,58 @@
             height: 52px;
         }
 
-        /* Phone Mockup */
+        /* iPhone Device Frame */
         .phone-mockup {
             margin-top: 60px;
+            position: relative;
+            display: inline-block;
         }
 
-        .phone-mockup img {
-            max-width: 280px;
-            width: 100%;
-            height: auto;
-            border-radius: 32px;
+        .device-frame {
+            position: relative;
+            background: #1a1a1a;
+            border-radius: 54px;
+            padding: 12px;
             box-shadow:
-                0 25px 50px -12px rgba(0, 0, 0, 0.15),
-                0 12px 24px -8px rgba(0, 0, 0, 0.1);
+                0 25px 50px -12px rgba(0, 0, 0, 0.25),
+                0 12px 24px -8px rgba(0, 0, 0, 0.15),
+                inset 0 0 0 2px #333,
+                inset 0 0 0 4px #1a1a1a;
+        }
+
+        .device-frame::before {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 28px;
+            background: #1a1a1a;
+            border-radius: 0 0 20px 20px;
+            z-index: 10;
+        }
+
+        /* Dynamic Island */
+        .device-frame::after {
+            content: '';
+            position: absolute;
+            top: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90px;
+            height: 28px;
+            background: #000;
+            border-radius: 20px;
+            z-index: 11;
+        }
+
+        .device-screen {
+            width: 260px;
+            height: auto;
+            border-radius: 42px;
+            display: block;
+            position: relative;
         }
 
         /* Categories Scroll Section */
@@ -407,9 +527,26 @@
                 height: 56px;
             }
 
-            .phone-mockup img {
-                max-width: 240px;
-                border-radius: 28px;
+            .device-frame {
+                border-radius: 44px;
+                padding: 10px;
+            }
+
+            .device-frame::before {
+                width: 80px;
+                height: 24px;
+                top: 10px;
+            }
+
+            .device-frame::after {
+                width: 72px;
+                height: 24px;
+                top: 14px;
+            }
+
+            .device-screen {
+                width: 220px;
+                border-radius: 34px;
             }
 
             .tagline {
@@ -462,7 +599,9 @@
         </a>
 
         <div class="phone-mockup">
-            <img src="/images/homescreen.png" alt="Rexx app home screen">
+            <div class="device-frame">
+                <img src="/images/homescreen.png" alt="Rexx app home screen" class="device-screen">
+            </div>
         </div>
     </section>
 
