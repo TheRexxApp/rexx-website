@@ -81,26 +81,54 @@
         .categories-section {
             padding: 60px 0;
             background: #f5f5f7;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .categories-section::before,
+        .categories-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 120px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .categories-section::before {
+            left: 0;
+            background: linear-gradient(to right, #f5f5f7 0%, transparent 100%);
+        }
+
+        .categories-section::after {
+            right: 0;
+            background: linear-gradient(to left, #f5f5f7 0%, transparent 100%);
         }
 
         .categories-wrapper {
-            overflow-x: auto;
-            overflow-y: hidden;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
+            overflow: hidden;
             padding: 20px 0;
-        }
-
-        .categories-wrapper::-webkit-scrollbar {
-            display: none;
         }
 
         .categories {
             display: flex;
             gap: 16px;
-            padding: 0 max(24px, calc((100vw - 960px) / 2 + 24px));
             width: max-content;
+            animation: scroll 30s linear infinite;
+        }
+
+        .categories:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
         }
 
         .category-card {
@@ -116,6 +144,7 @@
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: default;
+            flex-shrink: 0;
         }
 
         .category-card:hover {
@@ -416,6 +445,56 @@
     <section class="categories-section">
         <div class="categories-wrapper">
             <div class="categories">
+                <!-- First set -->
+                <div class="category-card">
+                    <span class="category-icon">📚</span>
+                    <span class="category-text">Books</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🎬</span>
+                    <span class="category-text">Movies</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">📺</span>
+                    <span class="category-text">TV Shows</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🎵</span>
+                    <span class="category-text">Music</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🎙️</span>
+                    <span class="category-text">Podcasts</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🍽️</span>
+                    <span class="category-text">Restaurants</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🎮</span>
+                    <span class="category-text">Games</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🏨</span>
+                    <span class="category-text">Hotels</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">✈️</span>
+                    <span class="category-text">Travel</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🍷</span>
+                    <span class="category-text">Wine</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">👗</span>
+                    <span class="category-text">Fashion</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🎨</span>
+                    <span class="category-text">Art</span>
+                </div>
+                <!-- Duplicate set for seamless loop -->
                 <div class="category-card">
                     <span class="category-icon">📚</span>
                     <span class="category-text">Books</span>
